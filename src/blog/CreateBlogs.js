@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const URI = "http://localhost:8000/blogs"
+const URI = `${process.env.REACT_APP_URI}/blogs`;
 
 const CompCreateBlogs = () => {
     const [title, setTitle] = useState('')
@@ -11,7 +11,7 @@ const CompCreateBlogs = () => {
 
     const createBlog = async () => {
         await axios.post(URI, {title, content})
-        navigate('/')
+        navigate('/blogs')
     }
 
     return (
